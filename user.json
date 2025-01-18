@@ -1,0 +1,12 @@
+{
+    "users": [
+        { "username": "Pipe", "password": "moomin" },
+        { "username": "Doom", "password": "yf665" },
+        { "username": "Gaby", "password": "tsuyu" },
+        { "username": "Dex", "password": "NoirRoom"},
+        { "username": "Dfallt", "password": "Venturas"},
+        {"username": "Maykol", "password": "ImAfraid"},
+        {"username": "Fox", "password": "Dakku"},
+        {"username": "Leander", "password": "pochita"}
+    ]
+}

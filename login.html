@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style2.css">
+    <meta charset="UTF-8">
+    <title>Sugiere Aportes - CNR</title>
+
+</head>
+<body>
+<!------------------------------------------------------------------>
+<div id="loginDiv">
+<div class="login-container">
+    <h1>Sugerir Aportes CNR</h1>
+    <h2>Inicia Sesión</h2>
+    <form id="loginForm">
+        <label for="username">Usuario:</label><br>
+        <input type="text" id="username" name="username" required><br>
+        <label for="password">Contraseña:</label><br>
+        <input type="password" id="password" name="password" required><br><br>
+        <button type="submit">Iniciar Sesión</button>
+    </form>
+    <h3>No estas registrado?</h3> <span><a id="registro">presiona acá</a></span>
+    </div>
+    </div>
+
+    <div style="display: none;" id="RegisterDiv">
+        <div class="register-container">
+            <h1>Sugerir Aportes CNR</h1>
+            <h2>Inicia Sesión</h2>
+            <form id="RegisterForm">
+                <label for="username">Usuario:</label><br>
+                <input type="text" id="username" name="username" required><br>
+                <label for="password">Contraseña:</label><br>
+                <input type="password" id="password" name="password" required><br><br>
+                <button type="submit">registrar<button>
+            </form>
+
+    <script src="js/script.js"></script>
+        <!-- <input type="text" id="loginUser" placeholder="Usuario" required>
+        <input type="password" id="loginPassword" placeholder="Contraseña" required>
+        <button onclick="login()">Iniciar Sesión</button> -->
+</div>
+</div>
+<div class="content" id="content">
+    <h2>Agrega tu link aca!</h2>
+    <p>gg.</p>
+    <form id="submission-form">
+        <label for="name">Nombre:</label>
+        <input type="text" id="name" required><br><br>
+
+        <label for="link">Link:</label>
+        <input type="url" id="link" required><br><br>
+
+        <label for="secondary-link">Link Secundario:</label>
+        <input type="url" id="secondary-link"><br><br>
+
+        <label for="description">Descripción:</label>
+        <textarea id="description" required></textarea><br><br>
+
+        <button type="submit">Subir</button>
+    </form>
+    <div id="output"></div>
+<!------------------------------------------------------------------>
+
+<!------------------------------------------------------------------>
+
+<!------------------------------------------------------------------>
+
+<!-- Modal -->
+<div id="modal" class="modal">
+    <div class="modal-content" id="modalMessage"></div>
+</div>
+
+<!-- <script>
+// Cargar usuarios desde Local Storage al inicio
+const users = JSON.parse(localStorage.getItem('users')) || []; 
+
+function showModal(message) {
+    const modal = document.getElementById('modal');
+    const modalMessage = document.getElementById('modalMessage');
+    
+    modalMessage.textContent = message; // Establecer el mensaje
+    modal.style.display = 'flex'; // Mostrar el modal
+
+    setTimeout(() => {
+        modal.classList.add('fade-out'); // Agregar la clase para animación
+        setTimeout(() => {
+            modal.style.display = 'none'; // Ocultar el modal después de la animación
+            modal.classList.remove('fade-out'); // Remover la clase para futuras animaciones
+        }, 1000); // Tiempo de duración de la animación
+    }, 1400); // Mostrar por 2 segundos
+}
+
+function register() {
+    const email = document.getElementById('registerUser').value;
+    const password = document.getElementById('registerPassword').value;
+
+    if (users.find(user => user.email === email)) {
+        showModal('Este correo ya está registrado.');
+        return;
+    }
+
+    users.push({ email, password });
+    localStorage.setItem('users', JSON.stringify(users)); // Guardar usuarios en Local Storage
+    showModal('Registro exitoso!');
+    
+    document.getElementById('registerUser').value = '';
+    document.getElementById('registerPassword').value = '';
+}
+
+function login() {
+    const email = document.getElementById('loginUser').value;
+    const password = document.getElementById('loginPassword').value;
+
+    const user = users.find(user => user.email === email && user.password === password);
+    
+    if (user) {
+        showModal('Inicio de sesión exitoso!');
+        document.getElementById('content').style.display = 'block'; // Mostrar contenido
+        document.getElementById('loginDiv').style.display = 'none';
+        document.getElementById('registerDiv').style.display = 'none'; // Ocultar el formulario de inicio de sesión
+        
+        document.getElementById('loginUser').value = '';
+        document.getElementById('loginPassword').value = '';
+        
+    } else {
+        showModal('Credenciales incorrectas.');
+    }
+}
+</script> -->
+
+</body>
+</html>

@@ -1,0 +1,233 @@
+body {
+    background: linear-gradient( #80053e, #000000);
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #fff788;
+}
+.login-container {
+    opacity: 0;
+    animation: 4s loginform forwards;
+    text-align: center;
+    height:100%;
+    backdrop-filter: blur(15rem);
+    background-color: rgba(0, 0, 200, 0.2);
+    color: #fff788;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
+}
+input[type="text"], input[type="password"], input[type="url"], textarea {
+    transition: 0.3s;
+    justify-content: center;
+    width: 90%;
+    padding: 8px;
+    margin: 5px;
+    margin-top: 9px;
+    margin-bottom: 9px;
+    border-radius: 9px;
+}
+
+textarea:hover{    background-color: rgb(168, 168, 168);
+    color: white;
+    transition: 0.3s;}
+
+input[type="url"]:hover{
+    background-color: rgb(168, 168, 168);
+    color: white;
+    transition: 0.3s;
+}
+input[type="password"]:hover {
+    background-color: rgb(168, 168, 168);
+    color: white;
+    transition: 0.3s;
+}
+
+input[type="text"]:hover {
+    background-color: rgb(168, 168, 168);
+    color: white;
+    transition: 0.3s;
+}
+
+.copysubmitBtn {
+ 
+    margin: 8px;
+    float: left;
+    cursor: pointer;
+    width: 30%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+button {
+    margin: 8px;
+    float: left;
+    cursor: pointer;
+    width: 92%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    animation: login 6s infinite;
+}
+#approve-button{
+    width: 35%;
+margin: 5px;
+    padding: 10px;
+position: center;
+    background-color: #0a9740;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    animation: aprove 6s infinite;
+}
+.SSBox {
+    transition: 0.2s;
+    cursor: pointer;
+border: 2px solid rgba(247, 241, 164,0.2);
+border-radius: 8px;
+padding:5px
+}
+span{
+    transition: 0.2s;
+    cursor: pointer;
+border: 2px solid rgba(247, 241, 164,0.2);
+border-radius: 8px;
+padding: 4px
+}
+span:hover{
+    color: rgb(81, 20, 97);
+    background-color: #fff788;
+    cursor: pointer;
+border: 2px solid #fff788;
+border-radius: 8px;
+padding: 4px;
+transition: 0.2s;
+}
+#deny-button{
+    position: center;
+    width: 35%;
+    margin: 5px;
+        padding: 10px;
+        background-color: #af1313;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        animation: deny 6s infinite;
+
+}
+
+
+.content{    
+    float: left;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(15rem);
+    background-color: rgba(0, 0, 200, 0.2);
+}
+#request-details{
+    margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 300px;
+            text-align: center;
+            border-radius: 5px; 
+
+
+    
+}
+
+body { font-family: Arial, sans-serif; }
+        .hidden { display: none; }
+        #content { display: none; }
+        
+        /* Estilos para el modal */
+        .modal {
+            color: #000000;
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 300px;
+            text-align: center;
+            border-radius: 5px; 
+        }
+
+        .fade-out {
+            animation: fadeOut 1s forwards; 
+        }
+
+        
+        @keyframes fadeOut {
+            from { opacity: 1; }
+            to { opacity: 0; }
+        }
+            @keyframes loginform {
+                25%{ opacity: 0; }
+                50%{ transition: 0.2s;
+                    opacity: 0.2; }
+                    75%{ transition: 0.2s;
+                    opacity: 0.5; }
+                    95%{ transition: 0.2s;
+                        opacity: 0.8; }
+                        100%{ transition: 0.2s;
+                            opacity: 3; }
+        }
+        @keyframes login {
+            25% {background-color: #0054ad;
+                transition: 0.3s;}
+            50% {background-color: #007bff;
+                transition: 0.3s;}
+            75% {background-color: #0054ad;
+                transition: 0.3s;}
+            100% {background-color: #007bff;
+                transition: 0.3s;}
+        }
+
+        @keyframes aprove {
+            25% {background-color: #246306;
+                transition: 0.3s;}
+            50% {background-color: #0a9740;
+                transition: 0.3s;}
+            75% {background-color: #246306;
+                transition: 0.3s;}
+            100% {background-color: #0a9740;
+                transition: 0.3s;}
+        }
+
+        @keyframes deny {
+            25% {background-color: #851313;
+                transition: 0.3s;}
+            50% {background-color: #af1313;
+                transition: 0.3s;}
+            75% {background-color: #851313;
+                transition: 0.3s;}
+            100% {background-color: #af1313;
+                transition: 0.3s;}
+        }
+
+        
