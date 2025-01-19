@@ -25,7 +25,7 @@ ${facebookLink}
 ${descripcion}
 Recomendado por: **${username}**
 Div técnico:
-```<div class="comingsoon"><a src="${link}">${nombre}</a> <a src="facebooklink">link de fasebu</a></div>```
+~<div class="comingsoon"><a src="${link}">${nombre}</a> <a src="facebooklink">link de fasebu</a></div>~
 `;
 
     try {
