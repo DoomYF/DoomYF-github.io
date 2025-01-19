@@ -1,58 +1,37 @@
-const { Client, GatewayIntentBits, Events } = require('discord.js');
-const bodyParser = require('body-parser');
 const express = require('express');
+const bodyParser = require('body-parser');
+const axios = require('axios');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Reemplaza esto con tu token de bot de Discord
-const DISCORD_BOT_TOKEN = 'TU_TOKEN_DE_BOT';
-
-const client = new Client({
-    intents: [GatewayIntentBits.Guilds],
-});
+// Reemplaza esto con tu token de bot de Discord y canal ID
+const DISCORD_WEBHOOK_URL = 'https://discord.com/api/webhooks/1330256028041744448/D02Kbz-Ppk4ZOFLEwjQsXlXs9_-hETvUn7BQ-awC4Y4OG__n8VRGthcOgnjzmYwrHZpz';
 
 app.use(bodyParser.json());
-app.use(express.static('.'));
-
-client.once(Events.ClientReady, () => {
-    console.log(`Bot conectado como ${client.user.tag}`);
-});
+app.use(express.static('.')); // Sirve archivos estáticos (como index.html)
 
 app.post('/send-notification', async (req, res) => {
     const { username, nombre, link, facebookLink, descripcion } = req.body;
 
-    const messageContent = `
-**Username:** ${username}
-**Nombre:** ${nombre}
-**Link:** ${link}
-**Link de Facebook:** ${facebookLink}
-**Descripción:** ${descripcion}
+    const message = ` **Solicitud de aporte entrante!**
+Nombre de el aporte:
+${nombre}
+**Link:** 
+${link}
+**Link de Facebook:** 
+${facebookLink}
+**Descripción:** 
+${descripcion}
+Recomendado por: **${username}**
+Div técnico:
+```<div class="comingsoon"><a src="${link}">${nombre}</a> <a src="facebooklink">link de fasebu</a></div>
 `;
 
-    // Crea los botones
-    const buttonRow = {
-        type: 1,
-        components: [
-            {
-                type: 2,
-                label: 'Generar Div',
-                style: 1,
-                customId: 'generate_div',
-            },
-            {
-                type: 2,
-                label: 'Borrar Mensaje',
-                style: 4,
-                customId: 'delete_message',
-            },
-        ],
-    };
-
     try {
-        // Envía un mensaje con botones al canal deseado
-        const channel = await client.channels.fetch('ID_DEL_CANAL'); // Cambia por el ID de tu canal
-        await channel.send({ content: messageContent, components: [buttonRow] });
+        await axios.post(DISCORD_WEBHOOK_URL, {
+            content: message,
+        });
         res.status(200).json({ status: 'Notificación enviada' });
     } catch (error) {
         console.error(error);
@@ -60,21 +39,5 @@ app.post('/send-notification', async (req, res) => {
     }
 });
 
-// Maneja los eventos de interacción
-client.on(Events.InteractionCreate, async (interaction) => {
-    if (!interaction.isButton()) return;
-
-    if (interaction.customId === 'generate_div') {
-        const divMessage = `<div class="botoncito"><a href="${link}">${nombre}</a></div> <a href="${facebookLink}">link de facebook</a>`;
-        await interaction.reply({ content: divMessage, ephemeral: true });
-    } else if (interaction.customId === 'delete_message') {
-        await interaction.reply({ content: 'Mensaje borrado', ephemeral: true });
-        await interaction.message.delete(); // Borra el mensaje original
-    }
-});
-
-client.login(DISCORD_BOT_TOKEN);
-
-// Inicia el servidor express
 app.listen(PORT, () => {
     console.log(`Servidor escuchando en http://localhost:${PORT}`);
